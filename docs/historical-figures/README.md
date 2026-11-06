@@ -1,32 +1,29 @@
-# 原研究图片放置说明
+# 原研究图片
 
-这里预留给你当时生成的 SHAP 和模型分析图片。主 README 已经写好标题、解释及对应的图片引用；当前图片尚未加入，因此引用先放在 HTML 注释中，不会显示损坏图片。
+本目录保存原研究的展示图片。以下四张组合图已加入主 README，按“图像指标提取 → SHAP 解释 → 空间应用”排列；依赖图默认折叠。图片按用户提供的原文件复制，没有裁剪、重绘或改变数值。
 
-## 添加图片
+| 已加入图片 | 内容 | 主 README 展示 |
+| --- | --- | --- |
+| [segmentation-overview.png](segmentation-overview.png) | 街景原图、语义 mask、叠加图，以及全景/鱼眼指标流程 | 完整展示 |
+| [shap-global-summary.png](shap-global-summary.png) | SHAP 平均绝对重要性与贡献分布 | 完整展示 |
+| [shap-dependence-panels.png](shap-dependence-panels.png) | GVI、生活服务 POI、TVF、SVF 的依赖图 | 可展开区域 |
+| [renovation-spatial-maps.png](renovation-spatial-maps.png) | 改造需求分类和改造潜力空间分布 | 完整展示 |
 
-1. 把原图复制到本文件所在的 `docs/historical-figures` 文件夹。
-2. 按下表使用对应文件名；已有同名图片无需改名。
-3. 打开仓库根目录 `README.md`，找到对应标题，删除那条图片引用前后的 `<!--` 和 `-->`。
-4. 删除该图的 `Original figure pending: ...` 一行。标题和解释保留。
-5. 在 GitHub Desktop 提交新增图片和 README 修改，再推送。
+流程组合图保留了原来的 DeepLab 标注；当前可运行的正式推理入口使用 SegFormer。图示不能替代模型配置或原 GIS 工程。
 
-例如，放入 `shap_importance_explained.png` 后，把：
+## 后续添加原始单图
 
-```markdown
-<!-- ![Original study SHAP feature importance](docs/historical-figures/shap_importance_explained.png) -->
-```
-
-改为：
+把图片放在本目录，在主 README 对应位置加入引用，例如：
 
 ```markdown
 ![Original study SHAP feature importance](docs/historical-figures/shap_importance_explained.png)
 ```
 
-也可以先只放图片，之后再让我帮你接上 README 中的图片引用。
+只为实际已加入的文件添加图片引用。较长的补充图可以继续放在 `<details>` 折叠区；在 GitHub Desktop 中将图片和 README 一起提交并推送。
 
 ## 标题与文件名
 
-| 主 README 标题 | 预留文件名 | 其他已找到的原版本文件名 |
+| 原始单图类型 | 建议文件名 | 其他已找到的原版本文件名 |
 | --- | --- | --- |
 | SHAP feature importance | `shap_importance_explained.png` | `shap_importance_bar_english.png`、`shap_importance_bar.png` |
 | SHAP summary plot | `shap_summary_explained.png` | `shap_summary_plot_english.png`、`shap_summary_plot.png` |

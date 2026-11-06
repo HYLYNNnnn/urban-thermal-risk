@@ -4,6 +4,8 @@ A Python research workflow connecting street-scene semantic segmentation with en
 
 The project focuses on **PyTorch segmentation, auditable pixel metrics, point-level data integration and XGBoost/SHAP**. Street imagery was obtained upstream using Baidu Maps according to the study's data collection workflow. This repository takes local images as input; no Baidu API key is required.
 
+[Study figures](#original-study-figures) · [Workflow](#main-workflow-and-entry-points) · [Quick start](#quick-start) · [Metric definitions](#metric-definitions)
+
 ```mermaid
 flowchart LR
     A[Local street and fisheye images] --> B[PyTorch SegFormer Cityscapes]
@@ -41,11 +43,44 @@ The main workflow starts with local street/fisheye images, extracts environmenta
 
 The supported analysis command is `python -m analysis.train ...`, shown in step 4. It includes the repaired risk classification and separate training/validation/test evaluation. The historical scripts and the supported modules have different output names; the gallery records original figures separately from the current example outputs.
 
+## Original study figures
+
+Archived figures from the original study, presented in workflow order. Click an image to inspect it at full resolution. The current verification outputs are documented separately in [`docs/examples/`](docs/examples/).
+
+### 1. From street images to environmental indicators
+
+[![Original street-scene segmentation, overlays and fisheye indicator workflow](docs/historical-figures/segmentation-overview.png)](docs/historical-figures/segmentation-overview.png)
+
+Street images, semantic masks and overlays illustrate the extraction of image-derived indicators. The illustration retains the original **DeepLab** label; the supported inference entry uses **SegFormer**.
+
+### 2. Explain the THIR model with SHAP
+
+[![Original THIR model global SHAP importance and contribution distribution](docs/historical-figures/shap-global-summary.png)](docs/historical-figures/shap-global-summary.png)
+
+Global feature importance (left) and the distribution of feature contributions across study points (right).
+
+<details>
+<summary>View feature-level SHAP dependence plots</summary>
+
+[![Original SHAP dependence plots for green view index, living-service POI, tree view factor and sky view factor](docs/historical-figures/shap-dependence-panels.png)](docs/historical-figures/shap-dependence-panels.png)
+
+Feature values are plotted against their SHAP contributions to THIR. These model explanations describe associations with the constructed index, rather than causal cooling effects.
+
+</details>
+
+### 3. Map renovation needs and potential
+
+[![Original spatial maps of renovation needs and renovation potential](docs/historical-figures/renovation-spatial-maps.png)](docs/historical-figures/renovation-spatial-maps.png)
+
+Original renovation-need classifications (left) and renovation-potential scores (right). These are archived planning outputs based on the study's indicators.
+
+Full-resolution images and notes: [figure guide](docs/historical-figures/README.md).
+
 ## Publish this folder
 
-Add the entire **`urban-thermal-risk`** folder to GitHub Desktop as one repository. It contains the source, dependency lists, small sample inputs and documentation. Its current upload contents are approximately 2.6 MB. Model weights, local environments and generated experiment folders are excluded by `.gitignore`. The original 4.2 GB archive remains outside this repository.
+Add the entire **`urban-thermal-risk`** folder to GitHub Desktop as one repository. It contains the source, dependency lists, small sample inputs and documentation. Model weights, local environments and generated experiment folders are excluded by `.gitignore`. The original 4.2 GB archive remains outside this repository.
 
-Original SHAP figures can be added later under [`docs/historical-figures/`](docs/historical-figures/README.md). The reserved titles and image lines below are ready for that step.
+The supplied original-study figures are included under [`docs/historical-figures/`](docs/historical-figures/README.md), alongside a guide for adding further archived plots.
 
 ## Quick start
 
@@ -126,84 +161,6 @@ The one-point sample is for checking segmentation/join behavior, not model evalu
 
 THIR is **constructed from the environmental features with fixed HEVA weights**. This model fits that constructed index, not an independently measured temperature target. Random point splits do not establish spatial generalization, and SHAP does not establish causal cooling effects.
 
-## Original study figures
-
-This gallery is reserved for figures generated during the original study. The figure titles and filenames below identify where each archived image belongs. Current verification outputs are kept in `docs/examples/`.
-
-To add a figure, copy it to `docs/historical-figures/` using the indicated filename, then remove the `<!--` and `-->` around its prepared image line in this README. The [Chinese figure guide](docs/historical-figures/README.md) lists equivalent filenames from the earlier analysis version.
-
-### SHAP feature importance
-
-Mean absolute SHAP values summarize each feature's average contribution to the model's THIR prediction.
-
-Original figure pending: `shap_importance_explained.png`.
-
-<!-- ![Original study SHAP feature importance](docs/historical-figures/shap_importance_explained.png) -->
-
-### SHAP summary plot
-
-The beeswarm plot shows the direction and distribution of feature contributions across study points.
-
-Original figure pending: `shap_summary_explained.png`.
-
-<!-- ![Original study SHAP summary plot](docs/historical-figures/shap_summary_explained.png) -->
-
-### SHAP dependence plots
-
-Feature values are plotted against their SHAP contributions, including green view index and tree/sky view factors.
-
-Original figure pending: `shap_dependence_detailed.png`.
-
-<!-- ![Original study SHAP dependence plots](docs/historical-figures/shap_dependence_detailed.png) -->
-
-### Green view index dependence
-
-Reserved for the original individual green view index dependence plot.
-
-Original figure pending: `shap_dependence_gvi_english.png`.
-
-<!-- ![Original study green view index SHAP dependence](docs/historical-figures/shap_dependence_gvi_english.png) -->
-
-### Tree view factor dependence
-
-Reserved for the original individual tree view factor dependence plot.
-
-Original figure pending: `shap_dependence_tvf_english.png`.
-
-<!-- ![Original study tree view factor SHAP dependence](docs/historical-figures/shap_dependence_tvf_english.png) -->
-
-### Green view index and tree view factor interaction
-
-Reserved for the original dependence plot colored by the second feature; this visualization is distinct from a computed SHAP interaction-value matrix.
-
-Original figure pending: `shap_interaction_explained.png`.
-
-<!-- ![Original study green view index and tree view factor interaction](docs/historical-figures/shap_interaction_explained.png) -->
-
-### Individual point explanation
-
-Force and waterfall plots illustrate the feature contributions for a selected study point.
-
-Original figure pending: `shap_individual_explained.png`.
-
-<!-- ![Original study individual point SHAP explanation](docs/historical-figures/shap_individual_explained.png) -->
-
-### XGBoost training and evaluation
-
-Reserved for the original training diagnostics, predicted-versus-target plot and residual distribution. Any scores shown here describe that historical experiment and its original evaluation procedure.
-
-Original figure pending: `xgboost_detailed_analysis.png`.
-
-<!-- ![Original study XGBoost training and evaluation](docs/historical-figures/xgboost_detailed_analysis.png) -->
-
-### Renovation priority analysis
-
-Reserved for the original feature-based renovation priority matrix.
-
-Original figure pending: `renovation_priority_matrix.png`.
-
-<!-- ![Original study renovation priority matrix](docs/historical-figures/renovation_priority_matrix.png) -->
-
 ## Metric definitions
 
 The default preserves the historical study's definition:
@@ -230,11 +187,14 @@ python -m unittest discover -s analysis/tests -t . -v
 
 The checks cover label mismatch, pixel/weighted metrics, image identity, point aggregation, failed batches, data joins, historical correspondence, risk boundaries, split isolation and real XGBoost/SHAP output consistency. CPU inference was actually run on four street images and one fisheye image, followed by a one-point join. The 238-point historical analysis was also executed. CUDA/MPS and the full 1,219-image batch were not rerun.
 
-Curated real outputs:
+<details>
+<summary>View segmentation examples from the verified local run</summary>
 
 ![Street segmentation overlay](docs/examples/street-overlay.png)
 
 ![Fisheye segmentation overlay](docs/examples/fisheye-overlay.png)
+
+</details>
 
 ## Source layout and limits
 
