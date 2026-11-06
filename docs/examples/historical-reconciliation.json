@@ -1,0 +1,155 @@
+{
+  "passed": true,
+  "absolute_tolerance": 1e-06,
+  "datasets": {
+    "features": {
+      "file": "historical_features.csv",
+      "rows": 238,
+      "unique_point_ids": 238,
+      "sha256": "f65232e5fac848adffaa5992f3b116d96c8a05ec05240e4de4aa5b0f13e421f5"
+    },
+    "street_points": {
+      "file": "folder_average_results.csv",
+      "rows": 245,
+      "unique_point_ids": 245,
+      "sha256": "56c9a45ddf5fde993c71a390e37cb8a317f92b08f36214466c7195304592c10b"
+    },
+    "fisheye_points": {
+      "file": "fisheye_view_factors.csv",
+      "rows": 242,
+      "unique_point_ids": 242,
+      "sha256": "5bd2cc758254e822e0aac0f9382cce70d17ab42d242360a87410a597e2c71afb"
+    },
+    "hw_points": {
+      "file": "street_canyon_hw_analysis_results.csv",
+      "rows": 245,
+      "unique_point_ids": 245,
+      "sha256": "16fbcf14f4a93daef5774eafdf52fc83121a02d83c9137f3cb00b6754ac8a862"
+    },
+    "street_images": {
+      "file": "all_image_results.csv",
+      "rows": 977,
+      "unique_point_ids": 245,
+      "sha256": "1c3f54e95ff489e866134bdbdab5471007f128efc3f90496ace9bf811c6269f6"
+    }
+  },
+  "metrics": {
+    "avg_green_view_index": {
+      "source": "street_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 0.0
+    },
+    "avg_sky_visibility": {
+      "source": "street_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 0.0
+    },
+    "avg_enclosure_index": {
+      "source": "street_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 0.0
+    },
+    "SVF": {
+      "source": "fisheye_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 4.312592335115421e-08
+    },
+    "TVF": {
+      "source": "fisheye_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 4.994960001170057e-10
+    },
+    "BVF": {
+      "source": "fisheye_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 4.977853684806632e-10
+    },
+    "hw_value": {
+      "source": "hw_points",
+      "compared": 238,
+      "matched": 238,
+      "mismatched": 0,
+      "missing": 0,
+      "invalid": 0,
+      "max_absolute_difference": 0.0
+    }
+  },
+  "raw_street_average_check": {
+    "compared": 735,
+    "matched": 735,
+    "mismatched": 0
+  },
+  "image_count_distribution": {
+    "3": 3,
+    "4": 242
+  },
+  "points_with_nonfour_image_count": {
+    "21": 3,
+    "187": 3,
+    "242": 3
+  },
+  "extra_historical_point_ids": {
+    "street_points": [
+      9,
+      21,
+      172,
+      178,
+      187,
+      238,
+      242
+    ],
+    "fisheye_points": [
+      9,
+      172,
+      178,
+      238
+    ],
+    "hw_points": [
+      9,
+      21,
+      172,
+      178,
+      187,
+      238,
+      242
+    ]
+  },
+  "historical_complete_point_count": 242,
+  "complete_historical_ids_not_in_ml": [
+    9,
+    172,
+    178,
+    238
+  ],
+  "issues": [],
+  "provenance": {
+    "street": "Historical Cityscapes metrics: GVI=vegetation+terrain, sky=sky, enclosure=building+wall+fence; per-point image means.",
+    "fisheye": "Recovered CSV uses the original SegFormer/Cityscapes circle and sin(zenith) weighting; values are not recomputed or treated as calibrated physical view factors.",
+    "hw": "Recovered hw_value is the original empirical pixel-ratio estimate, not a trained or surveyed height/width measurement.",
+    "features": "The existing 238-point study table remains the historical modeling input; extra recovered points are not automatically added."
+  }
+}

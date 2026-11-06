@@ -1,0 +1,10 @@
+# Verified Python 3.12 environment; GPU builds can be selected following pytorch.org.
+numpy==2.2.6
+pandas==2.3.3
+Pillow==11.3.0
+torch==2.8.0
+transformers==4.57.6
+scikit-learn==1.7.2
+xgboost==2.1.4
+shap==0.47.2
+matplotlib==3.10.7

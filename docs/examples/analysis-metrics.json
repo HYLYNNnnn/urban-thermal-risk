@@ -1,0 +1,162 @@
+{
+  "partition_metrics": {
+    "train": {
+      "rmse": 0.001559646002597959,
+      "mae": 0.00110137659280626,
+      "r2": 0.9999174136567524
+    },
+    "validation": {
+      "rmse": 0.046235033721602536,
+      "mae": 0.036594464956613976,
+      "r2": 0.9460392412320265
+    },
+    "test": {
+      "rmse": 0.04195632401902351,
+      "mae": 0.0276798313383592,
+      "r2": 0.9328946793708132
+    }
+  },
+  "cross_validation": {
+    "folds": 5,
+    "population": "outer_training_partition_only",
+    "early_stopping": false,
+    "scores": [
+      {
+        "rmse": 0.053994343659049614,
+        "mae": 0.043239070882731365,
+        "r2": 0.927828216987915
+      },
+      {
+        "rmse": 0.05684642431329747,
+        "mae": 0.03945063602121253,
+        "r2": 0.8665958805901917
+      },
+      {
+        "rmse": 0.03715475133586186,
+        "mae": 0.02464103527707265,
+        "r2": 0.9420622023479837
+      },
+      {
+        "rmse": 0.0710623179075506,
+        "mae": 0.049634950893236995,
+        "r2": 0.8632280666794035
+      },
+      {
+        "rmse": 0.0352671630677616,
+        "mae": 0.02735633719851638,
+        "r2": 0.938668887895389
+      }
+    ],
+    "mean_r2": 0.9076766509001766,
+    "std_r2": 0.035248480383184136
+  },
+  "selected_tree_count": 99,
+  "early_stopping_rounds": 15,
+  "evaluation_metric": "rmse",
+  "model_parameters": {
+    "n_estimators": 100,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "objective": "reg:squarederror",
+    "tree_method": "hist",
+    "n_jobs": 1
+  },
+  "sample_count": 238,
+  "seed": 42,
+  "target": "THIR_normalized",
+  "scope_note": "THIR is constructed from these environmental features using the original fixed HEVA weights and full-study-table min/max normalization. Scores describe a surrogate for that constructed index, not independent temperature measurements, causal cooling effects, or spatial generalization. The held-out test partition is never used for early stopping or cross-validation.",
+  "input_file": "historical_features.csv",
+  "input_sha256": "f65232e5fac848adffaa5992f3b116d96c8a05ec05240e4de4aa5b0f13e421f5",
+  "split_counts": {
+    "train": 142,
+    "validation": 48,
+    "test": 48
+  },
+  "risk_counts": {
+    "Low Risk": 19,
+    "Medium Risk": 69,
+    "High Risk": 87,
+    "Extreme Risk": 63
+  },
+  "normalization_population": "complete_input_study_table",
+  "normalization_ranges": {
+    "sky_view_factor": {
+      "min": 5.48e-06,
+      "max": 0.707756122
+    },
+    "tree_view_factor": {
+      "min": 0.001007504,
+      "max": 0.836818069
+    },
+    "building_view_factor": {
+      "min": 0.019466874,
+      "max": 0.781389886
+    },
+    "green_view_index": {
+      "min": 3.43e-05,
+      "max": 0.484577179
+    },
+    "sky_visibility": {
+      "min": 0.009360313,
+      "max": 0.442664146
+    },
+    "enclosure_index": {
+      "min": 0.03314209,
+      "max": 0.612130165
+    },
+    "height_width_ratio": {
+      "min": 0.1,
+      "max": 4.95
+    },
+    "housing_price": {
+      "min": 10367.54,
+      "max": 22037.03
+    },
+    "population_density": {
+      "min": 5640.859,
+      "max": 15414.78
+    },
+    "medical_poi": {
+      "min": 0.001956,
+      "max": 0.019758
+    },
+    "living_service_poi": {
+      "min": 0.002726,
+      "max": 0.197639
+    },
+    "education_poi": {
+      "min": 0.000554,
+      "max": 0.007494
+    },
+    "road_network_density": {
+      "min": 1393.12,
+      "max": 3594.856
+    },
+    "THIR": {
+      "min": -0.3167524877351589,
+      "max": 1.8357545985270511
+    },
+    "living_plus_education_poi": {
+      "min": 0.005295,
+      "max": 0.202236
+    }
+  },
+  "early_stopping_population": "validation_only",
+  "spatial_block_validation": false,
+  "versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "xgboost": "2.1.4",
+    "shap": "0.47.2",
+    "matplotlib": "3.10.7"
+  },
+  "shap": {
+    "sample_count": 238,
+    "population": "study_table_descriptive_explanation",
+    "selected_tree_count": 99
+  }
+}

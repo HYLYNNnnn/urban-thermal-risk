@@ -1,0 +1,33 @@
+# Local runtimes, model caches and large input batches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.huggingface/
+models/
+checkpoints/
+weights/
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+*.onnx
+*.zip
+*.7z
+*.rar
+# Experiments are generated locally; curated docs figures may be committed.
+outputs/
+runs/
+logs/
+*.log
+# Only the five checked-in sample inputs belong in source control.
+data/raw/
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/

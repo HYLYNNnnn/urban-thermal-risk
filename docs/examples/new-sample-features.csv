@@ -1,0 +1,2 @@
+﻿ID,longitude,latitude,height_width_ratio,housing_price,population_density,medical_poi,living_service_poi,education_poi,road_network_density,green_view_index,sky_visibility,enclosure_index,sky_view_factor,tree_view_factor,building_view_factor,metric_policy
+1,121.620895,38.918283,1.75,14954.11,6546.348,0.006199,0.047195,0.006335,2506.958,0.08948898315429688,0.19237422943115234,0.2974557876586914,0.14863664379588193,0.16099003809657195,0.39670147151563495,historical

@@ -1,0 +1,65 @@
+{
+  "started_at_utc": "2026-11-05T21:02:13.964373+00:00",
+  "input_name": "fisheye",
+  "view": "fisheye",
+  "metric_policy": "historical",
+  "metric_interpretation": "Historical proxy metrics: vegetation includes terrain; street sky fraction is not fisheye SVF. Fisheye factors retain the archived sin(theta) weighting and are not a calibrated physical view-factor measurement.",
+  "discovered_images": 1,
+  "processed_images": 1,
+  "point_count": 1,
+  "status": "completed",
+  "failures": [],
+  "images": [
+    {
+      "image": "1/1_fisheye.jpg",
+      "original_size": [
+        650,
+        650
+      ],
+      "processed_size": [
+        650,
+        650
+      ],
+      "raw_masks": "raw_masks/1/1_fisheye.jpg.png",
+      "color_masks": "color_masks/1/1_fisheye.jpg.png",
+      "overlays": "overlays/1/1_fisheye.jpg.png"
+    }
+  ],
+  "model": {
+    "model_id": "nvidia/segformer-b1-finetuned-cityscapes-1024-1024",
+    "revision": "ec86afeba68e656629ccf47e0c8d2902f964917b",
+    "architecture": "SegFormer",
+    "label_dataset": "Cityscapes",
+    "num_labels": 19,
+    "id2label": {
+      "0": "road",
+      "1": "sidewalk",
+      "2": "building",
+      "3": "wall",
+      "4": "fence",
+      "5": "pole",
+      "6": "traffic light",
+      "7": "traffic sign",
+      "8": "vegetation",
+      "9": "terrain",
+      "10": "sky",
+      "11": "person",
+      "12": "rider",
+      "13": "car",
+      "14": "truck",
+      "15": "bus",
+      "16": "train",
+      "17": "motorcycle",
+      "18": "bicycle"
+    },
+    "device": "cpu",
+    "max_edge": 1024,
+    "cpu_threads": 4,
+    "torch_version": "2.8.0",
+    "transformers_version": "4.57.6",
+    "preprocessing": "RGB; aspect-preserving downscale only; no processor resize; logits resized before argmax",
+    "historical_preprocessing_identical": false,
+    "checkpoint_loading": "pinned NVIDIA revision; trust_remote_code=False; weights_only=True"
+  },
+  "completed_at_utc": "2026-11-05T21:02:17.097424+00:00"
+}
